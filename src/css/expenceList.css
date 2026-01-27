@@ -1,0 +1,98 @@
+/* Container */
+.expence-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+}
+
+/* Title */
+.expence-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* List */
+.expence-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Each item */
+.expenceItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s;
+}
+
+.expenceItem:hover {
+    background-color: #f9fafb;
+}
+
+/* Left content */
+.expenceItem>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.expenceItem strong {
+    font-size: 1rem;
+    color: #111;
+}
+
+.expenceItem small {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Buttons container */
+.expenceItem button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    margin-left: 0.4rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Edit button */
+.expenceItem button:first-of-type {
+    color: #2563eb;
+    /* blue */
+}
+
+.expenceItem button:first-of-type:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Delete button */
+.expenceItem button:last-of-type {
+    color: #dc2626;
+    /* red */
+}
+
+.expenceItem button:last-of-type:hover {
+    background-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Active click effect */
+.expenceItem button:active {
+    transform: scale(0.95);
+}
+
+/* Empty state */
+.expence-container p {
+    text-align: center;
+    color: #666;
+    margin-top: 1rem;
+}

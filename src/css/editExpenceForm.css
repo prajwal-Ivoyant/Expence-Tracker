@@ -1,0 +1,97 @@
+/* Wrapper for edit form */
+.edit-form-container {
+    max-width: 420px;
+    margin: 2rem auto;
+    padding: 1.2rem 1.5rem;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+}
+
+/* Title */
+.edit-form-container h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+/* Each field block */
+.edit-form-container form>div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.9rem;
+}
+
+/* Labels */
+.edit-form-container label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+/* Inputs */
+.edit-form-container input {
+    padding: 0.55rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.edit-form-container input:focus {
+    border-color: #4f46e5;
+    /* indigo */
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* Buttons row */
+.edit-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+/* Save button */
+.edit-form-actions button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #16a34a;
+    /* green */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-form-actions button[type="submit"]:hover {
+    background-color: #15803d;
+}
+
+/* Cancel button */
+.edit-form-actions button[type="button"] {
+    padding: 0.5rem 1rem;
+    background-color: #e5e7eb;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-form-actions button[type="button"]:hover {
+    background-color: #d1d5db;
+}
+
+/* Active click effect */
+.edit-form-actions button:active {
+    transform: scale(0.97);
+}
