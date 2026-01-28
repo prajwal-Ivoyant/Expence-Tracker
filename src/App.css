@@ -1,38 +1,29 @@
-/* Reset some defaults */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Main app container */
 .app-container {
-  min-height: 100vh;
-  padding: 2rem 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px;
+  transform: scale(0.97);
+  transform-origin: top center;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 22px;
+  margin-top: 20px;
+
+}
+
+.left-panel {
+  position: sticky;
+  top: 90px;
+
+  height: fit-content;
+}
+
+.right-panel {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  gap: 18px;
 
-/* Section spacing */
-.app-section {
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Optional: App title */
-.app-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #111;
-  text-align: center;
 }

@@ -1,0 +1,110 @@
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 30px 0;
+}
+
+/* CARD BASE */
+.summary-card {
+    background: linear-gradient(180deg, #0b0b0b, #050505);
+    border: 1px solid #222;
+    padding: 28px;
+    position: relative;
+    font-family: 'Space Mono', monospace;
+}
+
+.summary-card .icon {
+    font-size: 22px;
+    opacity: 0.6;
+    margin-bottom: 18px;
+}
+
+.summary-card .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #777;
+    margin-bottom: 14px;
+}
+
+.summary-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    margin: 0 0 10px;
+}
+
+.summary-card .trend {
+    font-size: 12px;
+}
+
+/* COLORS */
+.income h2,
+.income .trend {
+    color: #00ff88;
+}
+
+.expense h2,
+.expense .trend {
+    color: #ff0055;
+}
+
+.balance h2,
+.balance .trend {
+    color: #00d4ff;
+}
+
+.neutral h2 {
+    color: #fff;
+}
+
+.trend.muted {
+    color: #666;
+}
+
+/* BARS */
+.summary-card .bar {
+    height: 3px;
+    width: 100%;
+    margin-top: 20px;
+    background: #222;
+    position: relative;
+    overflow: hidden;
+}
+
+.income .bar::after {
+    content: "";
+    width: 70%;
+    height: 100%;
+    background: #00ff88;
+    position: absolute;
+}
+
+.expense .bar::after {
+    content: "";
+    width: 55%;
+    height: 100%;
+    background: #ff0055;
+    position: absolute;
+}
+
+.balance .bar::after {
+    content: "";
+    width: 65%;
+    height: 100%;
+    background: #00d4ff;
+    position: absolute;
+}
+
+.neutral .bar::after {
+    content: "";
+    width: 40%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+}
+
+/* HOVER */
+.summary-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.25s ease;
+}
