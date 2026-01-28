@@ -7,11 +7,16 @@ export const selectFilteredExpenses = createSelector(
         (state: RootState) => state.filters,
     ],
     (expenses, filters) => {
-        const { category, dateRange } = filters;
+        const { category, dateRange, type } = filters;
 
         return expenses.filter((exp) => {
             // category filter
             if (category !== 'ALL' && exp.category !== category) {
+                return false;
+            }
+
+            // type filter
+            if (type !== 'ALL' && exp.type !== type) {
                 return false;
             }
 

@@ -1,0 +1,65 @@
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 32px;
+    background: linear-gradient(180deg, #0b0b0b, #050505);
+    border-bottom: 1px solid #222;
+}
+
+/* LEFT SIDE */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+/* ACCENT BAR */
+.nav-accent {
+    width: 4px;
+    height: 64px;
+    background: #00ff88;
+    box-shadow: 0 0 14px rgba(0, 255, 136, 0.8);
+}
+
+/* TITLE */
+.nav-title h1 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #00ff88, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 18px rgba(0, 255, 136, 0.35);
+}
+
+.nav-title p {
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #777;
+    font-family: 'Space Mono', monospace;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+    text-align: right;
+}
+
+.nav-date-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.nav-date-sub {
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #666;
+    font-family: 'Space Mono', monospace;
+}

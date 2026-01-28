@@ -1,98 +1,118 @@
-/* Container */
-.expence-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    font-family: Arial, sans-serif;
+.transactions-wrapper {
+    margin-top: 40px;
+    border: 1px solid #222;
+    background: linear-gradient(180deg, #0b0b0b, #050505);
 }
 
-/* Title */
-.expence-container h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-/* List */
-.expence-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Each item */
-.expenceItem {
-    /* display: flex;
+/* HEADER */
+.transactions-header {
+    display: flex;
     justify-content: space-between;
-    align-items: center; */
-    padding: 0.7rem 0.5rem;
-    border-bottom: 1px solid #e5e7eb;
-    transition: background-color 0.2s;
+    padding: 20px 26px;
+    border-bottom: 1px solid #222;
 }
 
-.expenceItem:hover {
-    background-color: #f9fafb;
+.transactions-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    color: #00d4ff;
 }
 
-/* Left content */
-.expenceItem>div {
+.transactions-header span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+/* LIST */
+.transactions-list {
     display: flex;
     flex-direction: column;
 }
 
-.expenceItem strong {
-    font-size: 1rem;
-    color: #111;
+.transaction-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 26px;
+    border-bottom: 1px solid #1c1c1c;
+    transition: background 0.2s ease;
 }
 
-.expenceItem small {
+.transaction-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* LEFT */
+.left .title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.meta {
+    display: flex;
+    gap: 14px;
+    font-size: 11px;
+    color: #888;
+}
+
+.badge {
+    padding: 2px 8px;
+    border: 1px solid #333;
+    letter-spacing: 2px;
+}
+
+/* RIGHT */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.amount {
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+}
+
+.amount.income {
+    color: #00ff88;
+}
+
+.amount.expense {
+    color: #ff0055;
+}
+
+/* TAG */
+.type-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid;
+    letter-spacing: 2px;
+}
+
+.type-tag.income {
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+.type-tag.expense {
+    color: #ff0055;
+    border-color: #ff0055;
+}
+
+/* DELETE */
+.delete {
     color: #666;
-    font-size: 0.85rem;
-}
-
-/* Buttons container */
-.expenceItem button {
-    background: none;
-    border: none;
     cursor: pointer;
-    padding: 0.3rem;
-    margin-left: 0.4rem;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: color 0.2s ease;
 }
 
-/* Edit button */
-.expenceItem button:first-of-type {
-    color: #2563eb;
-    /* blue */
+.delete:hover {
+    color: #ff0055;
 }
 
-.expenceItem button:first-of-type:hover {
-    background-color: rgba(37, 99, 235, 0.1);
-}
-
-/* Delete button */
-.expenceItem button:last-of-type {
-    color: #dc2626;
-    /* red */
-}
-
-.expenceItem button:last-of-type:hover {
-    background-color: rgba(220, 38, 38, 0.1);
-}
-
-/* Active click effect */
-.expenceItem button:active {
-    transform: scale(0.95);
-}
-
-/* Empty state */
-.expence-container p {
-    text-align: center;
+/* EMPTY */
+.empty-text {
+    padding: 30px;
     color: #666;
-    margin-top: 1rem;
+    text-align: center;
 }

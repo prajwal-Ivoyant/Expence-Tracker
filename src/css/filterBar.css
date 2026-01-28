@@ -1,0 +1,113 @@
+/* GLOBAL SAFETY (important for alignment) */
+* {
+    box-sizing: border-box;
+}
+
+
+.filters-wrapper {
+    background: linear-gradient(180deg, #0b0b0b, #050505);
+    border: 1px solid #222;
+    padding: 18px 22px;
+}
+
+/* TITLE */
+.filters-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #777;
+    margin-bottom: 14px;
+    font-family: 'Space Mono', monospace;
+}
+
+.filters-row {
+    display: flex;
+    align-items: baseline;
+
+    gap: 20px;
+}
+
+.neon-select {
+    width: 180px;
+    height: 42px;
+    line-height: 42px;
+
+    padding: 0 14px;
+    padding-right: 36px;
+
+    background: #0b0b0b;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    appearance: none;
+    cursor: pointer;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #aaa 50%),
+        linear-gradient(135deg, #aaa 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.neon-select:hover {
+    border-color: #00d4ff;
+}
+
+/* Focus */
+.neon-select:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Dropdown options */
+.neon-select option {
+    background: #050505;
+    color: #fff;
+}
+
+.reset-btn {
+    height: 42px;
+    line-height: 42px;
+    min-width: 200px;
+
+    margin-left: auto;
+    padding: 0 22px;
+
+    background: transparent;
+    border: 2px solid #ff0055;
+    color: #ff0055;
+
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* Icon */
+.reset-btn svg {
+    font-size: 18px;
+}
+
+/* Hover */
+.reset-btn:hover {
+    background: #ff0055;
+    color: #000;
+
+}

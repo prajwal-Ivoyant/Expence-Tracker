@@ -1,18 +1,27 @@
 import "./App.css";
 import ExpenseForm from "./components/expenceForm";
 import ExpenceList from "./components/expenceList";
+import Navbar from "./components/NavBar";
 import FiltersBar from "./components/filterBar";
+import SummaryCards from "./components/SummayCards";
 
 function App() {
   return (
-    <div >
-      <h1 className="app-title">Expense Tracker</h1>
-      <FiltersBar />
+    <div className="app-container">
+      <Navbar />
 
-      <div >
-        <ExpenseForm />
+      <SummaryCards />
 
-        <ExpenceList />
+      <div className="main-grid">
+
+        <div className="left-panel">
+          <ExpenseForm />
+        </div>
+
+        <div className="right-panel">
+          <FiltersBar />
+          <ExpenceList />
+        </div>
       </div>
     </div>
   );

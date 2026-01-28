@@ -1,82 +1,73 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteExpence } from "../app/expenceSlice";
 import type { expenceListTypes } from "./expenceTypes";
-//import type { RootState } from "../app/store";
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { useState } from "react";
-import EditExpanceForm from "./utils/editExpanceForm";
-import { Card, Row, Col } from 'antd';
-
-import "../css/expenceList.css"
+import { CloseOutlined } from "@ant-design/icons";
 import { selectFilteredExpenses } from "../app/selectors";
+import "../css/expenceList.css";
 
-
-
-
+const formatINR = (amount: number) =>
+    new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 2,
+    }).format(amount);
 
 function ExpenceList() {
+    const dispatch = useDispatch();
     const expenceList = useSelector(selectFilteredExpenses);
 
-    const dispatch = useDispatch();
-
-    const [editingExpence, setEditingExpence] = useState<expenceListTypes | null>(null);
-
-    const handleDelete = (id: string) => {
-        console.log(id);
-        dispatch(deleteExpence(id));
-    };
-
-    const handleEdit = (exp: expenceListTypes) => {
-        setEditingExpence(exp);
-    }
-
     return (
-        <div>
-            {expenceList && (
-                <>
-                    <h2>Expense List</h2>
+        <div className="transactions-wrapper">
+            <div className="transactions-header">
+                <h2>TRANSACTIONS</h2>
+                <span>{expenceList.length} TRANSACTIONS</span>
+            </div>
 
-                    {expenceList.length === 0 && (
-                        <p>No expenses added yet.</p>
-                    )}
-
-                    <Row gutter={[16, 16]}>
-                        {expenceList.map((exp: expenceListTypes) => (
-                            <Col key={exp.id} xs={24} sm={12} md={8}>
-                                <Card
-                                    title={exp.title}
-                                    variant="borderless"
-                                    actions={[
-                                        <EditOutlined
-                                            key="edit"
-                                            onClick={() => handleEdit(exp)}
-                                        />,
-                                        <DeleteOutlined
-                                            key="delete"
-                                            onClick={() => handleDelete(exp.id)}
-                                        />,
-                                    ]}
-                                >
-                                    <p><strong>₹ {exp.amount}</strong></p>
-                                    <p>{exp.category}</p>
-                                    <p>{exp.date}</p>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </>
+            {expenceList.length === 0 && (
+                <p className="empty-text">No transactions added yet.</p>
             )}
 
-            {editingExpence && (
-                <EditExpanceForm
-                    editingExpence={editingExpence}
-                    onCancel={() => setEditingExpence(null)}
-                />
-            )}
+            <div className="transactions-list">
+                {expenceList.map((exp: expenceListTypes) => (
+                    <div className="transaction-row" key={exp.id}>
+
+                        <div className="left">
+                            <p className="title">{exp.title}</p>
+
+                            <div className="meta">
+                                <span className="badge">{exp.category.toUpperCase()}</span>
+                                <span className="date">📅 {exp.date}</span>
+                            </div>
+                        </div>
+
+
+                        <div className="right">
+                            <p
+                                className={`amount ${exp.type === "income" ? "income" : "expense"
+                                    }`}
+                            >
+                                {exp.type === "income" ? "+" : "-"}
+                                {formatINR(exp.amount)}
+                            </p>
+
+                            <span
+                                className={`type-tag ${exp.type === "income" ? "income" : "expense"
+                                    }`}
+                            >
+                                {exp.type.toUpperCase()}
+                            </span>
+
+                            <CloseOutlined
+                                className="delete"
+                                onClick={() => dispatch(deleteExpence(exp.id))}
+                            />
+                        </div>
+
+                    </div>
+                ))}
+            </div>
         </div>
     );
-
 }
 
 export default ExpenceList;
-
