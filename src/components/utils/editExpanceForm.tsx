@@ -22,57 +22,62 @@ function EditExpanceForm({ editingExpence, onCancel }: EditExpanceFormProps) {
     };
 
     return (
-        <div >
+        <>
             <h3>Edit Expense</h3>
+            <form onSubmit={handleSubmit} >
+                <div className="editInpuDiv">
+                    <div>
+                        <label htmlFor="title">Title</label>
+                        <input
+                            id="title"
+                            type="text"
+                            value={localExpence.title}
+                            onChange={(e) =>
+                                setLocalExpence({ ...localExpence, title: e.target.value })
+                            }
+                        />
+                    </div>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input
-                        id="title"
-                        type="text"
-                        value={localExpence.title}
-                        onChange={(e) =>
-                            setLocalExpence({ ...localExpence, title: e.target.value })
-                        }
-                    />
-                </div>
+                    <div>
+                        <label htmlFor="amount">Amount</label>
+                        <input
+                            id="amount"
+                            type="number"
+                            value={localExpence.amount}
+                            onChange={(e) =>
+                                setLocalExpence({
+                                    ...localExpence,
+                                    amount: +e.target.value,
+                                })
+                            }
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor="amount">Amount</label>
-                    <input
-                        id="amount"
-                        type="number"
-                        value={localExpence.amount}
-                        onChange={(e) =>
-                            setLocalExpence({
-                                ...localExpence,
-                                amount: +e.target.value,
-                            })
-                        }
-                    />
-                </div>
+                    <div>
+                        <label htmlFor="date">Date</label>
+                        <input
+                            id="date"
+                            type="date"
+                            value={localExpence.date}
+                            onChange={(e) =>
+                                setLocalExpence({ ...localExpence, date: e.target.value })
+                            }
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor="date">Date</label>
-                    <input
-                        id="date"
-                        type="date"
-                        value={localExpence.date}
-                        onChange={(e) =>
-                            setLocalExpence({ ...localExpence, date: e.target.value })
-                        }
-                    />
-                </div>
-
-                <div >
-                    <button type="submit">Save</button>
-                    <button type="button" onClick={onCancel} >
-                        Cancel
-                    </button>
+                    <div className="btnSaveCancle">
+                        <div>
+                            <button type="submit">Save</button>
+                        </div>
+                        <div>
+                            <button type="button" onClick={onCancel} >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
-        </div>
+        </>
     );
 }
 

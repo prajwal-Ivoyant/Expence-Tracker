@@ -1,22 +1,28 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteExpence } from "../app/expenceSlice";
 import type { expenceListTypes } from "./expenceTypes";
-import type { RootState } from "../app/store";
+//import type { RootState } from "../app/store";
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import EditExpanceForm from "./utils/editExpanceForm";
+import { Card, Row, Col } from 'antd';
+
 import "../css/expenceList.css"
+import { selectFilteredExpenses } from "../app/selectors";
+
+
+
+
 
 function ExpenceList() {
-    const expenceList = useSelector(
-        (state: RootState) => state.expence.expenceList
-    );
+    const expenceList = useSelector(selectFilteredExpenses);
 
     const dispatch = useDispatch();
 
     const [editingExpence, setEditingExpence] = useState<expenceListTypes | null>(null);
 
     const handleDelete = (id: string) => {
+        console.log(id);
         dispatch(deleteExpence(id));
     };
 
@@ -26,33 +32,40 @@ function ExpenceList() {
 
     return (
         <div>
-            <h2>Expense List</h2>
+            {expenceList && (
+                <>
+                    <h2>Expense List</h2>
 
-            {expenceList.length === 0 && <p>No expenses added yet.</p>}
+                    {expenceList.length === 0 && (
+                        <p>No expenses added yet.</p>
+                    )}
 
-            <ul>
-                {expenceList.map((exp: expenceListTypes) => (
-                    <li key={exp.id} className="expenceItem">
-                        <div>
-                            <strong>{exp.title}</strong> — ₹{exp.amount}
-                            <br />
-                            <small>
-                                {exp.category} | {exp.date}
-                            </small>
-                        </div>
-
-                        <button aria-label="Edit expense" onClick={() => handleEdit(exp)}>
-                            <EditOutlined />
-                        </button>
-
-                        <button aria-label="Delete expense" onClick={() => handleDelete(exp.id)}>
-                            <DeleteOutlined />
-                        </button>
-                    </li>
-
-
-                ))}
-            </ul>
+                    <Row gutter={[16, 16]}>
+                        {expenceList.map((exp: expenceListTypes) => (
+                            <Col key={exp.id} xs={24} sm={12} md={8}>
+                                <Card
+                                    title={exp.title}
+                                    variant="borderless"
+                                    actions={[
+                                        <EditOutlined
+                                            key="edit"
+                                            onClick={() => handleEdit(exp)}
+                                        />,
+                                        <DeleteOutlined
+                                            key="delete"
+                                            onClick={() => handleDelete(exp.id)}
+                                        />,
+                                    ]}
+                                >
+                                    <p><strong>₹ {exp.amount}</strong></p>
+                                    <p>{exp.category}</p>
+                                    <p>{exp.date}</p>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                </>
+            )}
 
             {editingExpence && (
                 <EditExpanceForm
@@ -60,11 +73,9 @@ function ExpenceList() {
                     onCancel={() => setEditingExpence(null)}
                 />
             )}
-
         </div>
-
-
     );
+
 }
 
 export default ExpenceList;

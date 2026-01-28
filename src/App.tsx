@@ -1,13 +1,15 @@
 import "./App.css";
 import ExpenseForm from "./components/expenceForm";
 import ExpenceList from "./components/expenceList";
+import FiltersBar from "./components/filterBar";
 
 function App() {
   return (
-    <div className="app-container">
+    <div >
       <h1 className="app-title">Expense Tracker</h1>
+      <FiltersBar />
 
-      <div className="app-section">
+      <div >
         <ExpenseForm />
 
         <ExpenceList />

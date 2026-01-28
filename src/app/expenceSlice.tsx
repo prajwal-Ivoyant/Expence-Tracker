@@ -3,16 +3,12 @@ import { nanoid } from "@reduxjs/toolkit";
 import type { expenceListTypes } from "../components/expenceTypes";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface expenceState {
+export interface expenceState {
     expenceList: expenceListTypes[];
 }
 
 export const initialState: expenceState = {
-    expenceList: [
-        { id: "1", title: "rent", amount: 4000, category: 'Rent-Emi', date: '12/2/26' }
-    ]
-
-
+    expenceList: []
 }
 
 const expenceSlice = createSlice({
@@ -24,11 +20,13 @@ const expenceSlice = createSlice({
                 id: nanoid(),
                 ...action.payload,
             };
+
             state.expenceList.push(expence)
         },
         deleteExpence: (state, action: PayloadAction<string>) => {
+
             state.expenceList = state.expenceList.filter((expence) => {
-                expence.id != action.payload;
+                return expence.id != action.payload;
             })
         },
         editExpence: (state, action: PayloadAction<expenceListTypes>) => {

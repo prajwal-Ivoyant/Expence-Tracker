@@ -1,24 +1,17 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 form {
-    max-width: 420px;
-    margin: 2rem auto;
+    width: 95%;
     padding: 1.5rem;
-    background-color: #f9fafb;
+    background-color: rgb(47, 62, 75);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     font-family: Arial, sans-serif;
-}
-
-form>div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-
-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: #333;
 }
 
 input,
@@ -28,30 +21,33 @@ select {
     border-radius: 6px;
     font-size: 0.95rem;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus,
-select:focus {
-    border-color: #4f46e5;
-    /* indigo */
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+select:focus,
+input:hover,
+select:hover {
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.inputDiv {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 button {
-    padding: 0.6rem 1rem;
-    background-color: #4f46e5;
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #4338ca;
+    background-color: #4f46e5;
 }
 
 button:active {
