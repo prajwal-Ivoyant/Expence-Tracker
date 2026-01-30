@@ -2,6 +2,9 @@
 
 A comprehensive expense tracking application built with React and Redux Toolkit. Perfect for learning intermediate Redux concepts including state management, filtering, and data visualization.
 
+## 🚀 Live Demo
+👉 [Cash Expense Tracker](https://cashexpensetracker.netlify.app/)
+
 ## 🎯 Learning Objectives
 
 - Redux Toolkit setup and configuration
