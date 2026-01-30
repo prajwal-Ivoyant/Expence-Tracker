@@ -5,12 +5,12 @@ export const selectSummary = createSelector(
     [(state: RootState) => state.expence.expenceList],
     (expencelist) => {
         const income = expencelist
-            .filter((i) => i.type === "income")
-            .reduce((sum, i) => sum + i.amount, 0);
+            .filter(i => i.type === "income")
+            .reduce((sum, i) => sum + Number(i.amount), 0);
 
         const expense = expencelist
-            .filter((i) => i.type === "expense")
-            .reduce((sum, i) => sum + i.amount, 0);
+            .filter(i => i.type === "expense")
+            .reduce((sum, i) => sum + Number(i.amount), 0);
 
         return {
             totalIncome: income,

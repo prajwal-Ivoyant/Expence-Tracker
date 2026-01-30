@@ -29,6 +29,7 @@ const filtersSlice = createSlice({
         resetFilters: (state) => {
             state.category = 'ALL';
             state.dateRange = 'ALL';
+            state.type = 'ALL'
         },
     },
 });
